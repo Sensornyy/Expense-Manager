@@ -12,22 +12,18 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return transactions.isEmpty
-        ? LayoutBuilder(
-          builder: (ctx, constraints) {
+        ? LayoutBuilder(builder: (ctx, constraints) {
             return Column(
-                children: [
-                  Text('No transactions yet',
-                      style: Theme.of(context).textTheme.headline5),
-                  const Divider(),
-                  SizedBox(
-                    height: constraints.maxHeight * 0.6,
-                    child:
-                        Image.asset('assets/images/waiting.png', fit: BoxFit.cover),
-                  ),
-                ],
-              );
-          }
-        )
+              children: [
+                Text('No transactions yet', style: Theme.of(context).textTheme.headline5),
+                const Divider(),
+                SizedBox(
+                  height: constraints.maxHeight * 0.6,
+                  child: Image.asset('assets/images/waiting.png', fit: BoxFit.cover),
+                ),
+              ],
+            );
+          })
         : ListView.builder(
             itemBuilder: (context, index) {
               return Card(
@@ -41,19 +37,14 @@ class TransactionList extends StatelessWidget {
                   child: ListTile(
                     title: Text(
                       transactions[index].title,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     trailing: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         FittedBox(
                           child: Text(
-                            transactions[index]
-                                        .amount
-                                        .toStringAsFixed(2)
-                                        .length >
-                                    8
+                            transactions[index].amount.toStringAsFixed(2).length > 8
                                 ? '\$${NumberFormat.compact().format(transactions[index].amount)}'
                                 : '\$${transactions[index].amount.toStringAsFixed(2)}',
                             style: TextStyle(
@@ -78,9 +69,10 @@ class TransactionList extends StatelessWidget {
                               ],
                             ),
                             Text(
-                              DateFormat.MMMd()
-                                  .format(transactions[index].date),
-                              style: TextStyle(color: Colors.black54,),
+                              DateFormat.MMMd().format(transactions[index].date),
+                              style: TextStyle(
+                                color: Colors.black54,
+                              ),
                             ),
                           ],
                         ),

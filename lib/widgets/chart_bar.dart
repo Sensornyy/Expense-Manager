@@ -9,10 +9,11 @@ class ChartBar extends StatelessWidget {
   final double spendingAmount;
   final double spendingPercentageOfTotal;
 
-  ChartBar(
-      {required this.label,
-      required this.spendingAmount,
-      required this.spendingPercentageOfTotal});
+  ChartBar({
+    required this.label,
+    required this.spendingAmount,
+    required this.spendingPercentageOfTotal,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +23,7 @@ class ChartBar extends StatelessWidget {
           SizedBox(
             height: constraints.maxHeight * 0.15,
             child: FittedBox(
-              child: Text(
-                  '\$${NumberFormat.compact().format(spendingAmount.round())}'),
+              child: Text('\$${NumberFormat.compact().format(spendingAmount.round())}'),
             ),
           ),
           SizedBox(height: constraints.maxHeight * 0.05),
@@ -41,8 +41,7 @@ class ChartBar extends StatelessWidget {
                 FractionallySizedBox(
                   heightFactor: 1 - spendingPercentageOfTotal,
                   child: Container(
-                    decoration:
-                        BoxDecoration(color: Color.fromRGBO(220, 220, 220, 1)),
+                    decoration: BoxDecoration(color: Color.fromRGBO(220, 220, 220, 1)),
                   ),
                 )
               ],

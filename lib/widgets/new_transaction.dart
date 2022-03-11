@@ -19,7 +19,6 @@ class _NewTransactionState extends State<NewTransaction> {
   final FocusNode titleFocus = FocusNode();
   final FocusNode amountFocus = FocusNode();
 
-
   DateTime? _selectedDate;
 
   List categories = [
@@ -75,7 +74,8 @@ class _NewTransactionState extends State<NewTransaction> {
       key: _formKey,
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 8, right: 8, top: 12, bottom: MediaQuery.of(context).viewInsets.bottom + 10),
+          padding: EdgeInsets.only(
+              left: 8, right: 8, top: 12, bottom: MediaQuery.of(context).viewInsets.bottom + 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -108,8 +108,7 @@ class _NewTransactionState extends State<NewTransaction> {
                   });
                 },
                 value: selectedCategory,
-                validator: (value) =>
-                    value == null ? 'Please choose a category' : null,
+                validator: (value) => value == null ? 'Please choose a category' : null,
                 decoration: const InputDecoration(
                   labelText: 'Category',
                 ),
